@@ -3,112 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUCKY BAKERY</title>
+    <title>Pirate Registration</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-image: url('https://wallpapers.com/images/high/one-piece-pictures-bjm9tdff9yzguoup.webp');
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
         }
-        header {
-            background-color: #ffcc99;
-            padding: 20px;
+        .registration-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 350px;
             text-align: center;
+            animation: fadeIn 1s ease-in-out;
         }
-        header h1 {
-            margin: 0;
-            color: #8b4513;
+        .registration-container h2 {
+            margin-bottom: 20px;
+            font-family: 'Brush Script MT', cursive;
+            color: #ff6f61;
         }
-        nav {
-            background-color: #d2691e;
-            padding: 20px;
-            text-align: center;
+        .registration-container input[type="text"], .registration-container input[type="password"], .registration-container textarea {
+            width: calc(100% - 20px);
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s;
         }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
+        .registration-container input[type="text"]:focus, .registration-container input[type="password"]:focus, .registration-container textarea:focus {
+            border-color: #ff6f61;
         }
-        .container {
-            padding: 20px;
-        }
-        .about, .products, .contact {
-            background-color: white;
-            margin: 20px 0;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .products .product-item {
-            display: inline-block;
-            width: 20%;
-            margin: 1%;
-            vertical-align: top;
-        }
-        .products img {
-            max-width: 100%;
-            border-radius: 8px;
-        }
-        footer {
-            background-color: #d2691e;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
+        .registration-container button {
             width: 100%;
-            bottom: 0;
+            padding: 12px;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .registration-container button:hover {
+            background-color: #e55b50;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>LUCKY BAKERY</h1>
-</header>
-
-<nav>
-    <a href="#about">About Us</a>
-    <a href="#products">Products</a>
-    <a href="#contact">Contact</a>
-</nav>
-
-<div class="container">
-    <section id="about" class="about">
-        <h2>About Us</h2>
-        <p>Welcome to Lucky Bakery! We are passionate about baking and dedicated to providing our customers with the freshest and most delicious baked goods. From breads and pastries to cakes and cookies, everything is made from scratch with the finest ingredients.</p>
-    </section>
-
-    <section id="products" class="products">
-        <h2>Our Products</h2>
-        <div class="product-item">
-            <img src="https://i.pinimg.com/1200x/a4/39/61/a43961deb59f1606b67fd24a1495f9ab.jpg" alt="Bread">
-            <h3> NORMAL CAKES</h3>
-        </div>
-        <div class="product-item">
-            <img src="https://www.giftstohyd24x7.com/wp-content/uploads/2017/07/Butter-scotch-cake.jpg" alt="Pastries">
-            <h3>COOL CAKES</h3>
-        </div>
-        <div class="product-item">
-            <img src="https://5.imimg.com/data5/FS/DH/GLADMIN-49135101/mickey-fondant-cake-500x500.png" alt="Cakes">
-            <h3>STEP CAKES</h3>
-        </div>
-        <div class="product-item">
-            <img src="https://img.freepik.com/free-photo/delicious-cake-with-fruits_23-2150727658.jpg?t=st=1718980542~exp=1718984142~hmac=32e0dd06ffcf570d1c74da35493727c970c65e13ef4e4ad081328db01cb05a6d&w=996" alt="Cookies">
-            <h3>SPECIAL CHOCOLATE CAKES</h3>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <p>If you have any questions or would like to place an order, please contact us at:</p>
-        <p>Email: luckyashu1856@gmail.com Phone: 8790663255 INDIA</p>
-    </section>
-</div>
-
-<footer>
-    <p>&copy; 2024 Lucky Bakery. All rights reserved.</p>
-</footer>
+    <div class="registration-container">
+        <h2>Pirate Registration</h2>
+        <form action="/register" method="POST">
+            <input type="text" name="fullname" placeholder="Full Name" required><br>
+            <input type="text" name="skill" placeholder="Skill" required><br>
+            <textarea name="previousCrew" placeholder="Previous Crew Details" rows="4" required></textarea><br>
+            <button type="submit">Register</button>
+        </form>
+    </div>
 
 </body>
 </html>
