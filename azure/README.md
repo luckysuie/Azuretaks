@@ -31,3 +31,46 @@ The Ingress Controller is like the security guard at the gate.
 - Ingress = Signboard (rules of where traffic should go).
 - Ingress Controller = Security guard (actually directs the traffic).
 - Instead of giving each shop its own separate entrance, you have one main entrance and a smart system to send people to the right place.
+
+
+### Practical Implemantation
+
+#### Own Images
+- File structure
+```bash
+.
+├── Dockerfile
+└── assets
+    ├── demonslayer.jpg
+    ├── naruto.jpg
+    └── onepiece.png
+```
+
+- Dockerfile
+```bash
+FROM nginx:alpine
+
+# Which file to package (pass at build time)
+ARG ASSET
+
+# Copy only the selected asset
+COPY assets/${ASSET} /usr/share/nginx/html/
+
+# Simple index page showing the chosen image
+RUN sh -c 'echo "<!doctype html><html><head><meta charset=\"utf-8\"><title>${ASSET}</title></head><body style=\"margin:0;background:#111;display:grid;place-items:center;height:100vh\"><img src=\"${ASSET}\" style=\"max-width:100%;height:auto;border-radius:12px\"></body></html>" > /usr/share/nginx/html/index.html'
+
+# Nginx serves on port 80 by default
+```
+- Useful Commands
+```bash
+sudo docker login -u lucky1856
+
+sudo docker build --build-arg ASSET=demonslayer.jpg -t lucky1856/demon:v2 .
+sudo docker push lucky1856/demon:v2
+
+sudo docker build --build-arg ASSET=naruto.jpg -t lucky1856/naruto:v2 .
+sudo docker push lucky1856/naruto:v2
+
+sudo docker build --build-arg ASSET=onepiece.png -t lucky1856/onepiece:v2 .
+sudo docker push lucky1856/onepiece:v2
+```
